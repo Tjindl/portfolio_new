@@ -757,25 +757,219 @@ button {
   }
 }
 
+@media (max-width: 768px) {
+
+  /* Navigation */
+  .stage-nav {
+    top: 12px;
+    padding: 8px 12px;
+    width: 95%;
+    gap: 16px;
+    font-size: 0.85rem;
+  }
+
+  .stage-nav .logo {
+    font-size: 1rem;
+  }
+
+  .stage-nav .links {
+    gap: 4px;
+  }
+
+  .stage-nav .links button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  /* 3D Panels */
+  .panel-3d {
+    min-width: 85vw;
+    max-width: 85vw;
+    padding: 20px;
+  }
+
+  .panel-3d--wide {
+    min-width: 90vw;
+    max-width: 90vw;
+  }
+
+  .panel h1 {
+    font-size: 1.75rem;
+  }
+
+  .panel h2 {
+    font-size: 1.4rem;
+  }
+
+  .panel p {
+    font-size: 0.9rem;
+  }
+
+  /* Projects Panel */
+  .projects-panel {
+    height: 70vh;
+  }
+
+  .projects-panel>h2 {
+    padding: 16px 20px 0;
+    margin-bottom: 12px;
+  }
+
+  .sidebar {
+    padding: 0 16px 12px;
+    max-height: 100px;
+    gap: 8px;
+  }
+
+  .chip {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .projects-scroll {
+    padding: 16px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .project-card {
+    padding: 16px;
+  }
+
+  .project-card-title {
+    font-size: 1rem;
+  }
+
+  .project-card-desc {
+    font-size: 0.85rem;
+  }
+
+  /* Arrow Navigation */
+  .arrow-btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+  }
+
+  .arrow-btn.left,
+  .arrow-btn.right {
+    top: 50%;
+  }
+
+  .arrow-btn.left {
+    left: 16px;
+  }
+
+  .arrow-btn.right {
+    right: 16px;
+  }
+
+  .arrow-btn.down {
+    bottom: 80px;
+  }
+
+  .arrow-btn.up {
+    top: 80px;
+  }
+
+  /* Social Links */
+  .social-links {
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .social-link {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* Floating Resume Button */
+  .floating-resume-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 600px) {
   .stage-nav {
-    top: 16px;
-    padding: 8px 16px;
-    width: 90%;
+    top: 8px;
+    padding: 6px 10px;
+    width: 96%;
     justify-content: space-between;
   }
 
   .stage-nav .links {
     display: none;
-    /* Simplify for mobile, or use a menu */
   }
 
   .panel-3d {
     min-width: 90vw;
-    padding: 24px;
+    padding: 16px;
   }
 
   .panel h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .panel h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Arrow buttons - larger for touch */
+  .arrow-btn {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .arrow-btn.left {
+    left: 12px;
+  }
+
+  .arrow-btn.right {
+    right: 12px;
+  }
+
+  .arrow-btn.down {
+    bottom: 70px;
+  }
+
+  /* Social links - stack vertically on very small screens */
+  .social-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Floating resume - smaller on mobile */
+  .floating-resume-btn {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .floating-resume-btn span {
+    display: none;
+  }
+
+  .floating-resume-btn {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

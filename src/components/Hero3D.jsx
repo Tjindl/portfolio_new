@@ -277,6 +277,9 @@ export default function Scene3D({ full = false }) {
 
   const lastMoveRef = useRef(0)
 
+  // Detect mobile device
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+
   // Projects panel HTML
   const projectsHtml = (
     <div className="panel projects-panel">
@@ -588,13 +591,13 @@ export default function Scene3D({ full = false }) {
 
         <Suspense fallback={<Html center>Loading 3D...</Html>}>
           <Environment preset="city" blur={0.8} />
-          <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+          <Stars radius={100} depth={50} count={isMobile ? 2000 : 5000} factor={4} saturation={0} fade speed={1} />
           <Cloud opacity={0.3} speed={0.2} width={10} depth={1.5} segments={20} position={[0, -2, -5]} color="#1e293b" />
-          <Sparkles count={200} scale={[30, 20, 20]} size={4} speed={0.4} opacity={0.5} color="#ffffff" />
+          <Sparkles count={isMobile ? 100 : 200} scale={[30, 20, 20]} size={4} speed={0.4} opacity={0.5} color="#ffffff" />
 
           <Diorama />
-          <DroneSwarm />
-          <FloatingShapes />
+          {!isMobile && <DroneSwarm />}
+          {!isMobile && <FloatingShapes />}
 
           <ContactShadows position={[0, -1.6, 0]} opacity={0.5} blur={2} far={4} />
 
@@ -614,9 +617,11 @@ export default function Scene3D({ full = false }) {
           ))}
         </Suspense>
 
-        <EffectComposer disableNormalPass>
-          <Bloom luminanceThreshold={0.2} mipmapBlur intensity={0.5} radius={0.4} />
-        </EffectComposer>
+        {!isMobile && (
+          <EffectComposer disableNormalPass>
+            <Bloom luminanceThreshold={0.2} mipmapBlur intensity={0.5} radius={0.4} />
+          </EffectComposer>
+        )}
 
         <CameraRig target={target} parallaxRef={parallaxRef} lookAtRef={lookAtRef} />
         <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
